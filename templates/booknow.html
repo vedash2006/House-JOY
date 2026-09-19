@@ -1,0 +1,74 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block childpage %}
+<div class="row" id="offeredservices">
+    <p class="fs-3 text-center">Book<b class="txt-color3">Your Service</b></p>
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6 shadow p-3 mb-5 bg-body rounded mt-3 p-4">
+        <form method="Post">
+            {% csrf_token %}
+            <div class="row">
+
+                <div class="mb-3">
+  <label  class="form-label">Service Provider Id</label>
+
+
+  <input type="number" value="{{request.GET.id}}" readonly name="provider" required class="form-control"  id="provider">
+</div>
+
+
+            </div>
+
+        <div class="row">
+            <!-- service detail ,Appointment date ,Appointment time , which service your want (Describe),payment range,Current Address,City,Pincode, BookNow-->
+            <div class="col-sm-6">
+                <div class="mb-3">
+  <label  class="form-label">Appointment Date</label>
+  <input type="date" name="date" class="form-control" required id="date">
+</div>
+            </div>
+            <div class="col-sm-6"><div class="mb-3">
+  <label  class="form-label">Appointment Time</label>
+  <input type="time" name="time" class="form-control" required id="time" placeholder="select time">
+
+</div></div>
+        </div>
+        <div class="row">
+            <div class="mb-3">
+                <div class="mb-3">
+  <label  class="form-label">Describe with service you want (Full Details)</label>
+     <textarea name="detail"  class="form-control" required id="detail" rows="3"></textarea>
+</div>
+            </div>
+            <div class="col-sm-6"><div class="mb-3">
+  <label  class="form-label"> Your Full Address</label>
+  <textarea  name="address" class="form-control" required id="address" row="3"></textarea>
+
+</div></div>
+            <div class="col-sm-6"><div class="mb-3">
+  <label  class="form-label">City</label>
+  <input type="text" name="city" class="form-control" required id="city">
+
+</div></div>
+            <div class="col-sm-6">
+                <div class="mb-3">
+  <label  class="form-label">Pincode</label>
+  <input type="number" name="pincode" class="form-control" required id="pincode">
+
+</div></div>
+            <div class="col-sm-6">
+                <div class="mb-3">
+  <label  class="form-label">Payment Range (in Rs.)</label>
+  <input type="number" name="payment" class="form-control" required id="range" >
+
+</div>
+            </div>
+            <button href="/history/" type="submit" class="btn btn-info">Book Now</button>
+        </div>
+</form>
+        <!-- designing of booking form ends-->
+    </div>
+    <div class="col-sm-3"></div>
+</div>
+{% endblock %}

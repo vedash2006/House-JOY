@@ -1,0 +1,135 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+ {% block childpage %}
+{% for x in sdata %}
+<div class="container">
+ <div class="row">
+  <div class="col-sm-8">
+   <div class="row heading  pt-4">
+    <div class="col-sm-6">
+     <p class="fs-2">{{x.service_name}}</p>
+     <p class="m-0"><i class="fa-solid fa-location-dot"></i>{{x.address}},{{x.city}}<i class=" ps-3 fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i><i class="fa-solid fa-star text-warning"></i>(566)</p>
+    <div><a class="btn bg-mycolor1 mt-3 ">{{x.service_name}}</a></div>
+    </div>
+   </div>
+   <div clas="row">
+    <div class="col-sm-12 p-3">
+     <img src="../{{x.service_picture}}"  style="max-height:300px;" class="img-fluid w-100 rounded-3"/>
+     <h2 class="mt-2">{{x.service_category}}</h2>
+     <p>{{x.details}}</p>
+    </div>
+   </div>
+  </div>
+  <div class="col-sm-4">
+   <div class="card mt-5 text-center shadow-lg">
+       <h3 class="mt-4">Average Charge:&#8377;{{x.avg_price}}</h3>
+       <h6>
+       <a href="#offeredservices" class="mt-3" style="text-decoration:none;color:#808080">Have a look my offered services</a>
+       </h6>
+ <a href="/booknow?id={{x.id}}" class="btn bg-mycolor1 m-2">Book Services</a>
+   </div>
+      <div class="card mt-3 border-0 shadow-lg">
+          <h4 class="mt-2 mx-2">Service Provider</h4>
+          <div class="row ">
+              <div class="col-3 py-3"> <img src="../{{x.provider_picture}}"  style="max-height:70px;max-width:70px; " class="img-fluid rounded-circle  mx-3"/></div>
+              <div class="col-9 p-3">
+                  <b >{{x.provider_name}}</b>
+                  <p class="m-0" style="">XXXXXXXXXX</p>
+                  <p class="m-0">{{x.added_date}}</p>
+              </div>
+
+          </div>
+      </div>
+      <div class="card mt-3 p-2 border-0 shadow-lg">
+          <h4>Service Availabilty</h4>
+        {{x.availability|safe }}
+      </div>
+
+  </div>
+ </div>
+    <!-- display all services of service provider in a table -->
+    <div class="row" id="offeredservices">
+        <p class="fs-3">Offered <b style="color:red;">Services</b></p>
+        {% for s in services %}
+        <div class="col-sm-4 m-2">
+        <div class="card">
+  <div class="card-header">
+    <h3>{{s.service_title}}</h3>
+  </div>
+  <div class="card-body">
+      <div class="row">
+          <div class="col-sm-8">
+   <p class="card-text">{{s.description}}</p>
+              <h4>{{s.provider_name}}</h4>
+               <h6 class="card-title">Charge :&#8377;{{s.cost}}</h6>
+              <h6>Approx Time : {{s.avg_time}}</h6>
+
+
+      </div>
+          <div class="col-sm-4">
+              <img src="../{{s.service_pic}}" height="40%" width="100%" />
+          </div>
+      </div>
+  </div>
+</div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="row heading text-center py-4 ">
+    <div class="col-sm-6 mx-auto">
+        <p class="fs-3">Our<b style="color:#c71585">Services <i class="fa-solid fa-phone"></i></b></p>
+        <i> A Contact Us page is a vital component of a brand’s website.</i>
+    </div>
+</div>
+    <div class="container">
+<div class="row section2 my-4 ">
+    <div class="col-sm-4 mb-3">
+        <div class="card position-relative mx-auto p-3 w-100 border-0 shadow-lg ">
+  <img src="{% static 'images/about.jpg' %}" class="card-img-top imgzoom" alt="...">
+<div class="position-absolute  badge rounded-pill text-bg-light top-5 start-5" href=""> car wash</div>
+  <div class="card-body">
+    <h5 class="card-title">Card Repair Service</h5>
+      <h6 class="car-subtitle">Provide Name</h6>
+      <h6 class="car-subtitle txt-secondary  py-2 "><i class="fa-solid fa-location-dot"></i>Satti Road</h6>
+    <div class="card-text text-warning "><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><b class="float-end"  style="color:black;">&#8377;1999/-</b></div>
+    <div class="mt-3 p-0"><a href="/service/" class="btn p-1 bg-mycolor2">Book Service</a><a href="#" class="btn p-1 bg-mycolor2 float-end">Know More</a></div>
+
+  </div>
+        </div>
+
+
+</div>
+    <div class="col-sm-4 mb-3">
+        <div class="card position-relative mx-auto p-3 w-100 border-0 shadow-lg ">
+  <img src="{% static 'images/about.jpg' %}" class="card-img-top imgzoom" alt="...">
+<div class="position-absolute  badge rounded-pill text-bg-light top-5 start-5" href="#" > car wash</div>
+  <div class="card-body">
+    <h5 class="card-title">Card Repair Service</h5>
+      <h6 class="car-subtitle">Provide Name</h6>
+      <h6 class="car-subtitle txt-secondary  py-2 "><i class="fa-solid fa-location-dot"></i>Satti Road</h6>
+    <div class="card-text text-warning "><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><b class="float-end"  style="color:black;">&#8377;1999/-</b></div>
+    <div class="mt-3 p-0"><a href="#"  class="btn p-1 bg-mycolor2 ">Book Service</a><a href="#" class="btn p-1 bg-mycolor2 float-end">Know More</a></div>
+
+  </div>
+        </div>
+    </div>
+        <div class="col-sm-4 mb-3">
+        <div class="card position-relative mx-auto p-3 w-100 border-0 shadow-lg ">
+
+            <img src="{% static 'images/about.jpg' %}" class="card-img-top imgzoom" alt="...">
+<div class="position-absolute  badge rounded-pill text-bg-light top-5 start-5" href=""> car wash</div>
+  <div class="card-body">
+    <h5 class="card-title">Card Repair Service</h5>
+      <h6 class="car-subtitle">Provide Name</h6>
+      <h6 class="car-subtitle txt-secondary  py-2 "><i class="fa-solid fa-location-dot"></i>Satti Road</h6>
+    <div class="card-text text-warning "><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><b class="float-end"  style="color:black;">&#8377;1999/-</b></div>
+    <div class="mt-3 p-0"><a href="#" class="btn p-1 bg-mycolor2">Book Service</a><a href="#" class="btn p-1 bg-mycolor2 float-end">Know More</a></div>
+</div>
+        </div>
+        </div>
+</div>
+</div>
+{% endfor %}
+{% endblock %}

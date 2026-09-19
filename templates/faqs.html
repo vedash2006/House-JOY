@@ -1,0 +1,245 @@
+{% extends 'base.html'  %}
+{% load static %}
+
+{% block childpage %}
+<!--<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <title>Frequently Asked Questions</title>
+
+      <style>
+          @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.wrapper {
+  max-width: 75%;
+  margin: auto;
+}
+
+.wrapper > p,
+.wrapper > h1 {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.wrapper > h1 {
+  letter-spacing: 3px;
+}
+
+.accordion {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  font-size: 1.2rem;
+  width: 100%;
+  padding: 2rem 2.5rem;
+  border: none;
+  outline: none;
+  transition: 0.4s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.accordion i {
+  font-size: 1.6rem;
+}
+
+.active,
+.accordion:hover {
+  background-color: #f1f7f5;
+}
+.pannel {
+  padding: 0 2rem 2.5rem 2rem;
+  background-color: white;
+  overflow: hidden;
+  background-color: #f1f7f5;
+  display: none;
+}
+.pannel p {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+.faq {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 10px 0;
+}
+.faq.active {
+  border: none;
+}
+
+      </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <p>The Begninning of a New Asset class</p>
+      <h1>Frequently Asked Questions</h1>
+
+      <div class="faq">
+        <button class="accordion">
+          What is HouseJoy?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            HouseJoy is a platform that connects users with a wide range of home service professionals, including repair technicians, beauticians, and cleaners, making it easy to book reliable services for your home and personal needs.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          What types of services does HouseJoy offer?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            HouseJoy offers a comprehensive list of services, including plumbing, electrical repairs, beauty treatments, cleaning,Fitness & Wellness , and more.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          How do I book a service on HouseJoy?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            You can book a service through our user-friendly app or website by selecting the service you need, choosing a professional, and scheduling a time that suits your convenience.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          Are the service providers on HouseJoy verified?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            Yes, all service providers on HouseJoy are carefully vetted and trained to ensure they deliver high-quality work and reliability.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          Are there any ongoing promotions or discounts available?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            HouseJoy may offer promotions and discounts from time to time. Check our app or website for the latest offers and deals.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <button class="accordion">
+          How does HouseJoy ensure transparent pricing?
+          <i class="fa-solid fa-chevron-down"></i>
+        </button>
+        <div class="pannel">
+          <p>
+            HouseJoy offers clear and upfront pricing with no hidden fees. The cost of services is communicated to you before you confirm your booking.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var acc = document.getElementsByClassName("accordion");
+      var i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          this.parentElement.classList.toggle("active");
+
+          var pannel = this.nextElementSibling;
+
+          if (pannel.style.display === "block") {
+            pannel.style.display = "none";
+          } else {
+            pannel.style.display = "block";
+          }
+        });
+      }
+    </script>
+  </body>
+</html> -->
+<div class="container">
+  <div class="row my-4">
+  <div class=" text-center fs-3">Popular<b class="txt-color2">Faqs</b></div>
+        <i class="text-center" > Frequently Asked Question </i>
+    <div class="col-sm-2 my-4"></div>
+    <div class="col-sm-8 my-4">
+      <div class="accordion" id="accordionExample">
+  <div class="accordion-item mt-3 shadow-lg">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+       What is HouseJoy?
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>HouseJoy is a platform that connects users with a wide range of home service professionals, including repair technicians, beauticians, and cleaners, making it easy to book reliable services for your home and personal needs.
+        </strong>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item mt-3 shadow-lg">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+       What types of services does HouseJoy offer?
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+      <strong>HouseJoy offers a comprehensive list of services, including plumbing, electrical repairs, beauty treatments, cleaning,Fitness & Wellness , and more.
+      </strong>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item mt-3 shadow-lg">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        How do I book a service on HouseJoy?
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>You can book a service through our user-friendly app or website by selecting the service you need, choosing a professional, and scheduling a time that suits your convenience.
+        </strong>
+         </div>
+    </div>
+  </div>
+        <div class="accordion-item mt-3 shadow-lg">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Are the service providers on HouseJoy verified?
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+       <strong> Yes, all service providers on HouseJoy are carefully vetted and trained to ensure they deliver high-quality work and reliability.
+       </strong>
+         </div>
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="col-sm-2 my-4"></div>
+</div>
+  </div>
+{% endblock %}

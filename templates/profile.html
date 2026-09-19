@@ -1,0 +1,36 @@
+{% extends 'base.html'  %}
+{% load static %}
+
+{% block childpage %}
+{% if not request.session.email %}
+<script>
+    alert('you have login first ')
+    location.href='/login/'
+</script>
+{% endif %}
+{% for i in userinfo %}
+ <div class="row">
+    <div class="row py-5 ">
+        <div class="col-5 p-5 ">
+            <img src="../{{i.picture}}" style="border-radius:50%;height:380px;width:380px;" class="img-fluid" />
+            <h4 class="text-center p-3" >Name:- {{i.name}}</h4>
+            <h5 class="text-center mx-auto ">{{i.email}}</h5>
+        </div>
+        <div class="col-sm-7 p-4">
+             <form  method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                Name</br><input type="text" name="name" value="{{i.name}}" class="form-control shadow-lg p-3 mb-2 bg-body-tertiary rounded-0" placeholder="Name..." required/>
+                Email</br><input type="email" name="email" value="{{i.email}}" class="form-control shadow-lg p-3 mb-2 bg-body-tertiary rounded-0" placeholder="Email..." required/>
+                Mobile</br><input type="mobile" name="mobile" value="{{i.mobile}}" class="form-control shadow-lg p-3 mb-2 bg-body-tertiary rounded-0" placeholder="Mobile..." required/>
+                City</br><input type="city" name="city" value="{{i.city}}" class="form-control shadow-lg p-3 mb-2 bg-body-tertiary rounded-0" placeholder="City..." required/>
+                Pincode</br><input type="pincode" name="pincode" value="{{i.pincode}}" class="form-control shadow-lg p-3 mb-2 bg-body-tertiary rounded-0" placeholder="PinCode..." required/>
+                Address</br><input type="address" name="address" value="{{i.address}}" class="form-control shadow-lg p-3 mb-2 bg-body-tertiary rounded-0" placeholder="Address..." required></textarea></br>
+                Password</br><input type="password" name="passwd" value="{{i.passwd}}" class="form-control shadow-lg p-3 mb-2 bg-body-tertiary rounded-0" placeholder="Address..." required></textarea></br>
+                 <input type="file" value="{{i.fu}}" required name="fu"  class="form-control mt-3"/><br/>
+
+                 <input type="submit"  style=":red;" value="UPDATE PROFILE" class="form-control shadow-lg mb-2 rounded-0 bg-mycolor2 text-light w-25"/>
+            </form>
+    </div>
+</div>
+     {% endfor %}
+     {% endblock %}

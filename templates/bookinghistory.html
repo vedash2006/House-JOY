@@ -1,0 +1,38 @@
+{% extends 'base.html'  %}
+{% load static %}
+
+{% block childpage %}
+<div class="row mt-3 " id="offeredservices">
+    <p class="fs-3 text-center">YOUR<b class="txt-color3">BOOKING HISTORY</b></p>
+    {% for s in data %}
+    <div clas="col-sm-1">
+    </div>
+    <!--booking histroy starts -->
+    <div class="col-sm-10 mx-auto mt-2 p-3 ">
+        <div class="card text-center">
+  <div class="card-header">
+   <div class="row">
+       <div class="col-sm-3">Booking Date : {{s.11}}</div>
+       <div class="col-sm-4">Appointment For : {{s.1}} | {{s.4}} </div>
+       <div class="col-sm-3">Proposed Payment : {{s.}}  </div>
+       <div class="col-sm-2 float-end">Booking ID : {{s.0}}</div>
+   </div>
+  </div>
+  <div class="card-body">
+    <h6 class="card-title">PROVIDER NAME : {{s.13}} ({{s.17}}) </h6>
+    <h6 class="card-text">Address : {{s.22}}</h6>
+  </div>
+          <div class="card-footer text-muted bg-danger">
+              <div class="row" style="color:#ffffff">
+                  <div class="col-sm-6">Current Status : Pending</div>
+                  <div class="col-sm-6 float-end">Provider Contact No: +91 {{s.20}} </div>
+              </div>
+  </div>
+</div>
+    </div>
+    <!-- booking HIStroy ends -->
+    <div clasas="col-sm-1"></div>
+{% endfor %}
+</div>
+
+{% endblock %}

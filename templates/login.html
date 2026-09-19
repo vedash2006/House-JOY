@@ -1,0 +1,41 @@
+ {% extends 'base.html'  %}
+{% load static %}
+
+{% block childpage %}
+<style>
+.a{
+height:600px;
+width:1270px;
+background:white;
+}
+.b{
+height:550px;
+width:450px;
+}
+
+</style>
+<body>
+<div class="container-fluid py-3 a  w-100 ">
+    <form method="post">
+        {% csrf_token %}
+<div class="b bg-dark mx-auto px-4 py-5 rounded-3">
+<h3 class="text-center mx-3"><b class="text-light">LOGIN</b></h3>
+<p class="text-light text-center">Please enter your login and password</p><br/>
+<input type="email" name="email" class="form-control text-light bg-secondary" placeholder="Email" /><br/>
+<input type="password" name="password" class="form-control text-light bg-secondary" placeholder="password"/><br/>
+<center><a class="text-light">Forgot password?</a><br/><br/>
+<input type="submit" class="btn btn-primary" href="#" value="Login Now"/></center><br/>
+<center><i class="fa-brands fa-facebook text-light "></i>&nbsp;&nbsp;
+<i class="fa-brands fa-twitter text-light "></i>&nbsp;&nbsp;
+<i class="fa-brands fa-google text-light "></i>
+</center><br/>
+<p class="text-light text-center">Don't have an account?<a class="text-light" href="/#/">Forgot password?</a></p><br/>
+
+
+
+</div>
+    </form>
+</div>
+</body>
+</html>
+{% endblock %}

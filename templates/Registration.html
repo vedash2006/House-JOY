@@ -1,0 +1,99 @@
+{% extends 'base.html'%}
+{% load static %}
+
+ {% block childpage %}
+<style>
+    .form-control
+    {
+    height:50px;
+    background:#f6f6f6;
+    border-radius:0px !important;
+    }
+    .input-group-text
+    {
+    height:50px;
+    color:white;
+    border-radius:0px !important;
+    background:rgba(0,0,0,.8);
+
+    }
+</style>
+<!--start heading-->
+<div class="row my-3">
+    <div class="col-sm-5 mx-auto">
+        <div class="fs-3">Customer can<b class="txt-color1"> Register here..</b></div>
+
+        <hr/>
+    </div>
+</div>
+<!--end heading-->
+<div class="container">
+
+ <div class="row">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10 p-5 shadow-lg mb-5">
+   <form method="post" autocomplete="off" enctype="multipart/form-data">
+       {% csrf_token %}
+   <div class="row mt-3">
+    <div class="col-sm-6">
+     <div class="input-group flex-nowrap">
+  <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+  <input name="name"  type="text" class="form-control" placeholder="Enter Your Name" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+        <br/>
+    </div>
+    <div class="col-sm-6">
+     <div class="input-group flex-nowrap">
+  <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+  <input name="email" type="email" class="form-control" placeholder="Enter Your Email" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+    </div>
+    <div class="col-sm-6">
+     <div class="input-group flex-nowrap">
+  <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+  <input name="mobile" type="number" class="form-control" placeholder="Enter Your Number" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+        <br/>
+    </div>
+    <div class="col-sm-6">
+     <div class="input-group flex-nowrap">
+  <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+  <input name="pincode" type="number" class="form-control" placeholder="Enter Your Pincode" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+    </div>
+    <div class="col-sm-6">
+     <div class="input-group flex-nowrap">
+  <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+  <input name="city" type="text" class="form-control" placeholder="Enter Your City" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+        <br/>
+    </div>
+    <div class="col-sm-6">
+     <div class="input-group flex-nowrap">
+  <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+  <input name="passwd" type="password" class="form-control" placeholder="Enter Your Password" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+    </div>
+    <div class="col-sm-6">
+     <div class="input-group flex-nowrap">
+  <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+  <input name="fu" type="file" class="form-control" aria-label="Username" aria-describedby="addon-wrapping">
+</div>
+    </div>
+    <div class="col-sm-6">
+     <div class="input-group flex-nowrap">
+  <span class="input-group-text"><i class="fa-solid fa-user"></i></span>
+<textarea name="address" class="form-control" placeholder="Enter Your Address.."></textarea>
+     </div>
+        <br/>
+    </div>
+    <div class="col-sm-6">
+     <input type="submit" class="form-control w-50" style="background:orange!important;" value="Register Now">
+    </div>
+   </div>
+    </form>
+  </div>
+  <div class="col-sm-1"></div>
+ </div>
+</div>
+ {% endblock %}

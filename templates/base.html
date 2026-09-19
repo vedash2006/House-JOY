@@ -1,0 +1,356 @@
+
+ <!DOCTYPE html>
+{%load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/all.css' %}" rel="stylesheet"/>
+    <style>
+        body{
+        overflow-x:hidden;
+        }
+        :root
+        {
+       --bgcolor1:#006A4E;
+       --bgcolor2:#663366;
+       --bgcolor3:#AFB42B;
+        }
+        .bg-mycolor1
+        {
+        background:var(--bgcolor1);
+        }
+        .bg-mycolor2
+        {
+        background:var(--bgcolor2);
+        }
+        .bg-mycolor3
+        {
+        background:var(--bgcolor3);
+        }
+        .txt-color1
+        {
+        color:var(--bgcolor1);
+        }
+        .txt-color2
+        {
+        color:var(--bgcolor2);
+        }
+        .txt-color3
+        {
+        color:var(--bgcolor3);
+        }
+        .t1 a
+        {
+        text-decoration:none;
+        color:white;
+        }
+        .t1
+        {
+        font-size:14px;
+        }
+        .ic
+        {
+        border:1px solid white;
+        height:15px;
+        width10px;
+        text-align:center;
+        line:height:20px;
+        border-radius:1px;
+        }
+        .ic:hover
+        {
+        border:1px solid var(--bgcolor3);
+        color:var(--bgcolor3);
+        transform:rotate(360deg);
+        transition:all .5s;
+        }
+        #menu
+        {
+        background:transparent !important;
+        }
+        #menu ul li a
+        {
+        color:white;
+        }
+        .ufooter
+        {
+        min-height:300px;
+        background:black;
+        }
+        .bfooter
+        {
+        background:#2B2A07;
+        color:white;
+        text-align:left;
+        margin-top:1px;
+        }
+        *{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+.container{
+	max-width: 1170px;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #24262b;
+    padding: 70px 0;
+
+}
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align:center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+/responsive/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width:100%;
+}
+}
+        .imgzoom
+        {
+        transition:all ease 2s;
+        }
+        .imgzoom:hover
+        {
+        transform:scale(1.1);
+        transition:all ease 2s;
+        }
+        .ico{
+        border-radius:50%;
+        border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid">
+    <div class="row t1 bg-mycolor2 text-light text-center py-1">
+        <div class="col-sm-3">
+            <a style="color:black;" href="/faqs/" target="/">FAQs </a>
+            <a style="color:black;" href="#">About us </a>
+            <a style="color:black;" href="/contact/" target="/">Contact & Support </a>
+        </div>
+        <div class="col-sm-3">
+            <i  class="fa-solid fa-phone"></i>
+            <b style="color:black;">+91</b> <b>8115098297,6386934002</b>
+        </div>
+        <div class="col-sm-3">
+            <i class="fa-solid fa-envelope ic"></i>
+            {{ request.session.email }}
+        </div>
+        <div class="col-sm-3">
+<i class="fa-brands fa-facebook ic"></i>
+<i class="fa-brands fa-instagram ic"></i>
+<i class="fa-brands fa-twitter ic"></i>
+        </div>
+
+    </div>
+    <div class="row t2 py-2">
+        <div class="col-sm-3 fs-2">
+            House<b style="color:grey;">JOY<i class="fa-solid fa-city"></i></b>
+        </div>
+        <div class="col-sm-3 text-end text-center">
+            <b>Heading</b><br/>
+            heading title
+        </div>
+        <div class="col-sm-3 text-end text-center">
+            <b>Heading</b><br/>
+            heading title
+        </div>
+        <div class="col-sm-3 text-center pe-5 pt-2">
+            {% if not request.session.email %}
+            <img src="{% static 'images/about.jpg' %}" height="50px"
+                 width="50px" style="border-radius:50%"/> RAM
+            {% else %}
+
+            <img src="/{{request.session.picture}}" height="50px"
+                 width="50px" style="border-radius:50%"/>&nbsp;
+            <b>Welcome  , {{ request.session.name}} </b>
+            {% endif %}
+</div>
+    </div>
+<div class="row menu bg-mycolor2" style="min-height:40px;">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-10">
+        <!--startmenu-->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary p-0" id="menu">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/home/"><i class="fa-solid fa-house"></i>Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/allservices/" target="/"><i class="fa-solid fa-book"></i>Book Service</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/about/" target="/">About Us</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/Registration/" target="/">Registration</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/faqs/" target="_blank">FAQs</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/contact/" target="/">Contact Us</a>
+        </li>
+          {%  if not  request.session.email %}
+          <li class="nav-item">
+          <a class="nav-link" href="/login/" target="/"><i class="fa-solid fa-user"></i>Login</a>
+        </li>
+          {% else %}
+          <li class="nav-item">
+          <a class="nav-link" href="/history/" target="_blank">Booking History</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/profile/" target="/">My Profile</a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/logout/" target="/">Logout</a>
+        </li>
+          {% endif %}
+
+      </ul>
+    </div>
+  </div>
+</nav>
+        <!--end menu-->
+    </div>
+    <div class="col-sm-3"></div>
+</div>
+
+  <div class="row">
+    <div class="col-sm-12" style="min-height:500px;">
+         {% block childpage %}
+
+         {% endblock %}
+         </div>
+  </div>
+
+
+<div class="row ufooter" >
+    <footer class="footer">
+  	 <div class="container-fluid">
+  	 	<div class="row">
+  	 		<div class="footer-col">
+  	 			<h4>Categories</h4>
+  	 			<ul>
+  	 				<li><a href="#"><i class="fa-solid fa-angles-right"></i>Interior Design</a></li>
+  	 				<li><a href="#"><i class="fa-solid fa-angles-right"></i>Painting</a></li>
+  	 				<li><a href="#"><i class="fa-solid fa-angles-right"></i>Cleaning</a></li>
+  	 				<li><a href="#"><i class="fa-solid fa-angles-right"></i>Wireing</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>Quick Links</h4>
+  	 			<ul>
+  	 				<li><a href="#"><i class="fa-solid fa-angles-right"></i>About Us</a></li>
+  	 				<li><a href="#"><i class="fa-solid fa-angles-right"></i>Contact Us</a></li>
+  	 				<li><a href="#"><i class="fa-solid fa-angles-right"></i>FAQs</a></li>
+  	 				<li><a href="#"><i class="fa-solid fa-angles-right"></i>Blog</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>Contact Us</h4>
+  	 			<ul>
+  	 				<li><a href="#"><i class=" fa-regular fa-building fs-5 " style="color:pink;text-align:left;"></i>&nbsp;&nbsp;&nbsp;242 Satti Road ,Mirzapur,UP<br>India</br></a></li>
+  	 				<li><a href="#"><i class="fa-solid fa-headphones"></i>6386934002</a></li>
+  	 				<li><a href="#"><i class="fa-solid fa-envelope"></i>vedansh2006@gmail.com</a></li>
+  	 			</ul>
+  	 		</div>
+  	 		<div class="footer-col">
+  	 			<h4>Social Links</h4>
+  	 			<div class="social-links">
+  	 				<a href="https://www.facebook.com"><i class="  fab fa-facebook-f"></i></a>
+  	 				<a href="https://x.com/i/flow/login?redirect_after_login=%2Fhome"><i class="fab fa-twitter"></i></a>
+  	 				<a href="https://www.instagram.com/accounts/login/"><i class="fab fa-instagram"></i></a>
+  	 				<a href="https://www.youtube.com"><i class="fab fa-linkedin-in"></i></a></br>
+                    <img src="{% static 'images/pla.png'%}"class="img-fluid"/>
+  	 			</div>
+  	 		</div>
+  	 	</div>
+  	 </div>
+  </footer>
+    <div class="row bfooter">
+    <div class="col-sm-6"><b class="txt-color3">Developed By:</b>Er.Vedansh Baranwal</div>
+    <div class="col-sm-6"><b class="txt-color3">Copyright to &copy;</b>.</div>
+</div>
+</div>
+</div>
+
+
+<script src="{% static 'js/bootstrap.bundle.js'%}"></script>
+</body>
+</html>
+<!--- python manage.py createsuperuser-->

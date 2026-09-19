@@ -1,0 +1,76 @@
+{% extends 'base.html'  %}
+{% load static %}
+
+{% block childpage %}
+<style>
+    .form-control
+    {
+    heigth:
+    }
+</style>
+<!-- start heading -->
+<div class="row heading text-center">
+    <div class="col-sm-6 mx-auto">
+        <p class="fs-3"> Contact <b class="txt-color1">Us <i class="fa-solid fa-phone"></i></b></p>
+        <i> A Contact Us page is a vital component of a brand’s website.
+
+It’s one of the few ways available for potential customers to have a direct line of communication with a business – all without leaving the site.</i>
+    </div>
+</div>
+<!--end heading -->
+
+<div class="row">
+    <div class="row">
+        <div class="col-7">
+           <!-- NAME : {{a1}}
+            NAME : {{email}}
+            NAME : {{mobile}}
+            NAME : {{message}} -->
+            <form autocomplete="off" method="post">
+                {% csrf_token %}
+                Name</br><input type="text" name="name" class="form-control shadow-lg p-3 mb-2 bg-body-tertiary rounded-0" placeholder="Name..." required/>
+                Email</br><input type="email" name="email" class="form-control shadow-lg p-3 mb-2 bg-body-tertiary rounded-0" placeholder="Email..." required/>
+                Mobile</br><input type="mobile" name="mobile" class="form-control shadow-lg p-3 mb-2 bg-body-tertiary rounded-0" placeholder="Mobile..." required/>
+                Message</br><textarea type="message" name="msg" class="form-control shadow-lg p-3 mb-2 bg-body-tertiary rounded-0" placeholder="Msg..."></textarea></br>
+
+                <input type="submit" value="save" class="form-control shadow-lg mb-2 rounded-0 bg-mycolor2 text-light w-25"/>
+            </form>
+        </div>
+        <div class="col-5">
+               <div class="container-fluid w-100 border-1 py-4" >
+                   <div class="border border-black shadow-lg bg-body-tertiary rounded-0 " style="min-height:300px;">
+                       <h3 class="text-center">Contact <b class="text-danger">Info</b></h3>
+                       <h5 class="px-2"> <i class="fa-solid fa-address-card px-2 text-danger"></i>Office Address </h5>
+                       <p class="px-5" > Satti Road <br>
+                           Mirzapur Uttar Pradesh 231001 </p>
+                       <h5 class="px-2"><i class="fa-solid fa-phone px-2 text-danger"></i>Call Us</h5>
+                       <p class="px-5"> Phone: +91 8115098297 </p>
+                       <p class="px-5"> Phone: +91 9026077496 </p>
+                     <h5 class="px-2"> <i class="fa-solid fa-envelope px-2 text-danger"></i>Mail Us</h5>
+
+
+                       <p class="px-5">  vedanshbaranwal2006@gamil.com  </p>
+
+                   </div>
+
+
+		 </div>
+        </div>
+    </div>
+</div>
+
+<div class="row heading text-center">
+    <div class="col-sm-6 mx-auto">
+        <p class="fs-3"> Loaction <b class="txt-color1"> Us <i class="fa-solid fa-location-dot"></i></b></p>
+
+           </div>
+</div>
+<!-- end -->
+<div class="row">
+    <div class="col-sm-10 mx-auto">
+       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2143.7141023172267!2d82.56100268708653!3d25.149244068318467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398fc1d5e8fa378d%3A0x9f44985ae3674190!2sGoverdhan%20Nath%20Temple%20(Beti%20Ji%20Mandir)!5e0!3m2!1sen!2sin!4v1726583001453!5m2!1sen!2sin" class="w-100" height="400px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+
+
+{% endblock %}

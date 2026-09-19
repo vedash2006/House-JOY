@@ -1,0 +1,208 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block childpage %}
+<div class="row slider p-0">
+        <div class="col-sm-12 p-0">
+            <!-----------------------start slider------------------------->
+            <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="1800">
+      <img src="{% static 'images/hj2.jpg' %}" style="max-height:550px;" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="color:#7868EE;font-size:30px;" >Interior Design</h5>
+        <p>Provides you the best interior design facilities .</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="1800">
+      <img src="{% static 'images/f1.jpg' %}" style="max-height:550px;" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="color:#7868EE; font-size:30px;">House Renovation</h5>
+        <p>Gives you the best it can.</p>
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="1800">
+      <img src="{% static 'images/f2.jpg' %}" style="max-height:550px;" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5 style="color:black;font-size:30px;">Solar Installation </h5>
+        <p>it represents the developed and modernized culture.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+            <!------------------------------------end slider-------------------------------->
+        </div>
+ </div>
+<!-------------------------------------->
+<br/>
+<div class="row category text-center">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+        <div class="fs-3">Featured<b class="txt-color2">Category</b></div>
+        <i>Explore the greates Our services.You Won't Be Disaapointed</i>
+        <div class="row">
+            {% for x in cdata %}
+            <!--start category-->
+            <div class="col-sm-2">
+                <a href="/allservices?cid={{x.id}}" class="text-dark" style="text-decoration:none;">
+                <p class="shadow p-3 mb-2 bg-body-tertiary rounded text-center">
+
+                    <img src="../{{x.category_picture}}" class="img-fluid"/>
+                      <b>{{x.category_name}}</b></a>
+                </p>
+                </div>
+                <!--end category-->
+            {% endfor %}
+                <!--start category-->
+                <!--end category-->
+        </div>
+    </div>
+</div>
+<!-- our services -->
+<div class="container p-5">
+
+<div class="row heading text-center py-4 ">
+    <div class="col-sm-6 mx-auto">
+        <p class="fs-3">Our<b style="color:#c71585">Services </b></p>
+        <i>In this category are top most services .</i>
+    </div>
+</div>
+<div class="row section2 my-4 mb-3">
+    {% for x in servicedata %}
+    <div class="col-sm-4 mb-4">
+        <div class="card position-relative mx-auto p-3 w-100 border-0 shadow-lg ">
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-bg-secondary">&#8377;{{x.discount_price}} <span class="visually-hidden">unread messages</span></span>
+
+
+  <img src="../{{x.service_picture}}" class="card-img-top imgzoom" alt="...">
+<div class="position-absolute  badge rounded-pill text-bg-light top-5 start-5" href="">{{x.service_category}}</div>
+  <div class="card-body">
+    <h5 class="card-title"><b>{{x.service.name}}</b></h5>
+      <h6 class="car-subtitle"><b>{{x.provider_name}}</b>
+      <img src="../{{x.provider_picture}}" height="70px" width="70px" class="float-end rounded-circle" />
+      </h6>
+      <h6 class="car-subtitle txt-secondary  py-2 "><i class="fa-solid fa-location-dot"></i>{{x.address}} , <h9>{{x.city}}</h9></h6>
+    <div class="card-text text-warning "><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><b class="float-end"  style="color:black;">&#8377;{{x.avg_price}}/-</b></div>
+    <div class="mt-3 p-0"><a href="/booknow?id={{x.id}}" class="btn p-1 bg-mycolor2">Book Service</a>
+        <a href="/service?msg={{x.id}}" class="btn p-1 bg-mycolor2 float-end">Know More</a></div>
+
+  </div>
+        </div>
+
+
+</div>
+      {% endfor %}
+
+
+
+    </div>
+    </div>
+<!-- our service end -->
+<!-- most popular start -->
+
+<!-- most popular end -->
+
+<!-- how it work Start -->
+<div class="row heading text-center py-4 ">
+    <div class="col-sm-6 mx-auto">
+        <p class="fs-3">How its<b class="txt-color1">Works </b></p>
+        </div>
+    </div>
+<div class="container">
+        <div class="row mb-4 ">
+            <div class="col-sm-4 text-center mb-3">
+                <i class="fa-solid fa-place-of-worship fs-2 border border-1 my-2 p-3 bg-mycolor1 rounded-3 "></i>
+                <h2>Amazing Places</h2>
+                <h5>sample content is good for our web page </h5>
+            </div>
+            <div class="col-sm-4 text-center mb-3">
+                <i class="fa-solid fa-place-of-worship fs-2 border border-1 my-2 p-3 bg-mycolor1 rounded-3 "></i>
+                <h2>Amazing Places</h2>
+                <h5>sample content is good for our web page </h5>
+            </div>
+            <div class="col-sm-4 text-center mb-3">
+                <i class="fa-solid fa-place-of-worship fs-2 border border-1 my-2 p-3 bg-mycolor1 rounded-3 "></i>
+                <h2>Amazing Places</h2>
+                <h5>sample content is good for our web page </h5>
+            </div>
+        </div>
+</div>
+
+
+<!-- how it work end -->
+
+<!-- our services start -->
+
+<div class="container p-4">
+    <div class="row heading text-center py-4 ">
+    <div class="col-sm-6 mx-auto">
+        <p class="fs-3">Our<b style="color:#c71585">Services <i class="fa-solid fa-phone"></i></b></p>
+        <i> A Contact Us page is a vital component of a brand’s website.</i>
+    </div>
+</div>
+<div class="row section2 my-4 ">
+    <div class="col-sm-4 mb-3">
+        <div class="card position-relative mx-auto p-3 w-100 border-0 shadow-lg ">
+  <img src="{% static 'images/about.jpg' %}" class="card-img-top imgzoom" alt="...">
+<div class="position-absolute  badge rounded-pill text-bg-light top-5 start-5" href=""> car wash</div>
+  <div class="card-body">
+    <h5 class="card-title">Card Repair Service</h5>
+      <h6 class="car-subtitle">Provide Name</h6>
+      <h6 class="car-subtitle txt-secondary  py-2 "><i class="fa-solid fa-location-dot"></i>Satti Road</h6>
+    <div class="card-text text-warning "><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><b class="float-end"  style="color:black;">&#8377;1999/-</b></div>
+    <div class="mt-3 p-0"><a href="/service/" class="btn p-1 bg-mycolor2">Book Service</a><a href="#" class="btn p-1 bg-mycolor2 float-end">Know More</a></div>
+</div>
+  </div>
+        </div>
+
+
+    <div class="col-sm-4 mb-3">
+        <div class="card position-relative mx-auto p-3 w-100 border-0 shadow-lg ">
+  <img src="{% static 'images/about.jpg' %}" class="card-img-top imgzoom" alt="...">
+<div class="position-absolute  badge rounded-pill text-bg-light top-5 start-5" href="#" > car wash</div>
+  <div class="card-body">
+    <h5 class="card-title">Card Repair Service</h5>
+      <h6 class="car-subtitle">Provide Name</h6>
+      <h6 class="car-subtitle txt-secondary  py-2 "><i class="fa-solid fa-location-dot"></i>Satti Road</h6>
+    <div class="card-text text-warning "><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><b class="float-end"  style="color:black;">&#8377;1999/-</b></div>
+    <div class="mt-3 p-0"><a href="#"  class="btn p-1 bg-mycolor2 ">Book Service</a><a href="#" class="btn p-1 bg-mycolor2 float-end">Know More</a></div>
+
+  </div>
+        </div>
+    </div>
+        <div class="col-sm-4 mb-3">
+        <div class="card position-relative mx-auto p-3 w-100 border-0 shadow-lg ">
+
+            <img src="{% static 'images/about.jpg' %}" class="card-img-top imgzoom" alt="...">
+<div class="position-absolute  badge rounded-pill text-bg-light top-5 start-5" href=""> car wash</div>
+  <div class="card-body">
+    <h5 class="card-title">Card Repair Service</h5>
+      <h6 class="car-subtitle">Provide Name</h6>
+      <h6 class="car-subtitle txt-secondary  py-2 "><i class="fa-solid fa-location-dot"></i>Satti Road</h6>
+    <div class="card-text text-warning "><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><b class="float-end"  style="color:black;">&#8377;1999/-</b></div>
+    <div class="mt-3 p-0"><a href="#" class="btn p-1 bg-mycolor2">Book Service</a><a href="#" class="btn p-1 bg-mycolor2 float-end">Know More</a></div>
+</div>
+        </div>
+        </div>
+</div>
+</div>
+<!-- our servics end -->
+<div class="row section3"></div>
+<div class="row section4"></div>
+
+    {% endblock %}
+
+
